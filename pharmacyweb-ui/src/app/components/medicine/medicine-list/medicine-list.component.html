@@ -1,1 +1,51 @@
-<p>medicine-list works!</p>
+<div class="container">
+
+  <h2>All Medicines</h2>
+
+  <!-- 🔍 SEARCH -->
+  <input
+    type="text"
+    placeholder="Search medicines..."
+    [(ngModel)]="searchText"
+    (input)="filterMedicines()"
+    class="search-bar"
+  />
+
+  <!-- 🧠 CATEGORY FILTER -->
+  <div class="categories">
+
+    <button
+      class="cat-btn"
+      (click)="clearFilter()">
+      All
+    </button>
+
+    <button
+      class="cat-btn"
+      *ngFor="let c of categories"
+      (click)="selectCategory(c.name)">
+      {{c.name}}
+    </button>
+
+  </div>
+
+  <!-- 💊 MEDICINES -->
+  <div class="medicines">
+
+    <div class="medicine-card" *ngFor="let m of medicines">
+
+      <!-- 🖼️ NICE IMAGE -->
+      <img src="https://images.unsplash.com/photo-1588776814546-ec7e8b3c9c6e" />
+
+      <h4>{{m.name}}</h4>
+      <p>{{m.dosage}}</p>
+      <p class="price">₹ {{m.price}}</p>
+
+     <button [routerLink]="['/medicine', m.id]">
+  View Details
+</button>
+    </div>
+
+  </div>
+
+</div>

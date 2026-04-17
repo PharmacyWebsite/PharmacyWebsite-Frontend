@@ -1,0 +1,103 @@
+.order-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.header h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.header p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.order-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* TOP */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top h4 {
+  margin: 0;
+}
+
+/* BADGE */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.pending {
+  background: #fef3c7;
+}
+
+.approved {
+  background: #dbeafe;
+}
+
+.completed {
+  background: #dcfce7;
+}
+
+.rejected {
+  background: #fee2e2;
+}
+
+/* INFO */
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.info span {
+  display: block;
+  color: #6b7280;
+}
+
+/* ITEMS */
+.items {
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  padding: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .order-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,1 +1,18 @@
-<p>loyalty works!</p>
+<div class="admin-page">
+  <h2>Loyalty Points</h2>
+
+  <div class="form-card">
+    <input type="number" [(ngModel)]="userId" placeholder="User ID" class="form-control">
+    <input type="number" [(ngModel)]="points" placeholder="Points" class="form-control">
+
+    <div class="form-actions">
+      <button class="primary-btn" (click)="addPoints()">Add Points</button>
+      <button class="secondary-btn" (click)="getPoints()">View Points</button>
+    </div>
+  </div>
+
+  <div *ngIf="result" class="result-card">
+    <h4>User Points</h4>
+    <p>{{result.points}}</p>
+  </div>
+</div>

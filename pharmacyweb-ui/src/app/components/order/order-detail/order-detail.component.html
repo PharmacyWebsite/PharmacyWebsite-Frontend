@@ -1,1 +1,54 @@
-<p>order-detail works!</p>
+<div class="detail-page">
+
+  <!-- LOADING -->
+  <div *ngIf="loading" class="loading">
+    Loading order...
+  </div>
+
+  <!-- CONTENT -->
+  <div *ngIf="!loading && order" class="detail-card">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div>
+        <h2>Order #{{order.id}}</h2>
+        <p>Total Items: {{getTotalQty()}}</p>
+      </div>
+
+      <span class="badge" [ngClass]="getStatusClass(order.status)">
+        {{order.status}}
+      </span>
+    </div>
+
+    <!-- ITEMS -->
+    <div class="items">
+
+      <h4>Order Items</h4>
+
+      <div class="item" *ngFor="let item of order.items">
+
+        <div class="left">
+          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88">
+        </div>
+
+        <div class="middle">
+          <p>Medicine ID: {{item.medicineId}}</p>
+          <span>Quantity: {{item.quantity}}</span>
+        </div>
+
+        <div class="right">
+          <strong>x{{item.quantity}}</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EMPTY -->
+  <div *ngIf="!loading && !order" class="empty">
+    Order not found
+  </div>
+
+</div>

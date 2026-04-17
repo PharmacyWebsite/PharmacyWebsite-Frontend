@@ -1,0 +1,81 @@
+.detail-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* CARD */
+.detail-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header p {
+  color: #6b7280;
+}
+
+/* BADGE */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.pending { background: #fef3c7; }
+.approved { background: #dbeafe; }
+.completed { background: #dcfce7; }
+.rejected { background: #fee2e2; }
+
+/* ITEMS */
+.items h4 {
+  margin-bottom: 15px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.left img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+.middle p {
+  margin: 0;
+}
+
+.middle span {
+  color: #6b7280;
+}
+
+.right {
+  font-size: 18px;
+}
+
+/* STATES */
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+}

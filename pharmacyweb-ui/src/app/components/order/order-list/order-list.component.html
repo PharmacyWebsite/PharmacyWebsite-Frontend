@@ -1,1 +1,53 @@
-<p>order-list works!</p>
+<div class="order-page">
+
+  <div class="header">
+    <h2>My Orders</h2>
+    <p>Track your orders and status</p>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading orders...
+  </div>
+
+  <div *ngIf="!loading && orders.length === 0" class="empty">
+    No orders placed yet
+  </div>
+
+  <div class="order-grid" *ngIf="!loading && orders.length > 0">
+
+    <div class="order-card" *ngFor="let order of orders">
+
+      <div class="top">
+        <h4>Order #{{ order.id }}</h4>
+
+        <span class="badge" [ngClass]="getStatusClass(order.status)">
+          {{ order.status }}
+        </span>
+      </div>
+
+      <div class="info">
+        <div>
+          <span>Total Qty</span>
+          <strong>{{ getTotalQty(order) }}</strong>
+        </div>
+
+        <div>
+          <span>Items Count</span>
+          <strong>{{ order.items?.length || 0 }}</strong>
+        </div>
+      </div>
+
+      <div class="items" *ngIf="order.items?.length">
+
+        <div class="item" *ngFor="let item of order.items">
+          <span>Medicine ID: {{ item.medicineId }}</span>
+          <span>Qty: {{ item.quantity }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

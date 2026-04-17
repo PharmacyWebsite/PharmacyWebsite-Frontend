@@ -1,9 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { Medicine } from '../models/medicine.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class MedicineService {
 
-  constructor() { }
+  private apiUrl = `${environment.apiUrl}/medicine`;
+
+  constructor(private http: HttpClient) {}
+
+  getAllMedicines() {
+    return this.http.get<Medicine[]>(this.apiUrl);
+  }
+
+  getMedicineById(id: number) {
+    return this.http.get<Medicine>(`${this.apiUrl}/${id}`);
+  }
+
+  createMedicine(data: any, stock: number) {
+    return this.http.post(`${this.apiUrl}?stock=${stock}`, data);
+  }
+
+  updateMedicine(id: number, data: any) {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
+  }
+
+  deleteMedicine(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

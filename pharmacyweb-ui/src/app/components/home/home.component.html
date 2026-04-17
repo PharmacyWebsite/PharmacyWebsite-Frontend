@@ -1,1 +1,53 @@
-<p>home works!</p>
+<div class="home-container">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+
+    <div class="hero-left">
+      <h1>Your Health, Our Priority</h1>
+      <p>Order medicines easily with prescription support</p>
+
+      <button class="browse-btn" routerLink="/medicines">
+        Browse Medicines
+      </button>
+    </div>
+
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1580281657527-47c03e7c1d3d" alt="pharmacy">
+    </div>
+
+  </div>
+
+  <!-- CATEGORIES -->
+  <h3 class="section-title">Categories</h3>
+
+  <div class="categories">
+
+    <div class="category-card" *ngFor="let c of categories">
+      <div class="icon">💊</div>
+      <p>{{c.name}}</p>
+    </div>
+
+  </div>
+
+  <!-- FEATURED MEDICINES -->
+  <h3 class="section-title">Featured Medicines</h3>
+
+  <div class="medicines">
+
+    <div class="medicine-card" *ngFor="let m of medicines">
+
+      <img src="https://via.placeholder.com/150" />
+
+      <h4>{{m.name}}</h4>
+      <p>{{m.dosage}}</p>
+
+      <button (click)="viewDetails(m.id)">
+        View Details
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

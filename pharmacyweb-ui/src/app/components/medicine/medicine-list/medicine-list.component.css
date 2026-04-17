@@ -1,0 +1,67 @@
+.container {
+  padding: 20px;
+}
+
+.search-bar {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* CATEGORY */
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cat-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 20px;
+  background: #e5e7eb;
+  cursor: pointer;
+}
+
+.cat-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* MEDICINES */
+.medicines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.medicine-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  width: 180px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.medicine-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.medicine-card button {
+  margin-top: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
