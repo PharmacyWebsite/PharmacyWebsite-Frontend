@@ -9,7 +9,9 @@ export class MedicineService {
   private apiUrl = `${environment.apiUrl}/medicine`;
 
   constructor(private http: HttpClient) {}
-
+getAll() {
+  return this.http.get<any[]>(`${environment.apiUrl}/medicine`);
+}
   getAllMedicines() {
     return this.http.get<Medicine[]>(this.apiUrl);
   }

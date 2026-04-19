@@ -1,54 +1,45 @@
-<div class="detail-page">
+<div class="order-page">
 
-  <!-- LOADING -->
-  <div *ngIf="loading" class="loading">
-    Loading order...
+  <h2>Order Details</h2>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <div *ngIf="!loading && !order">
+    Order not found
   </div>
 
-  <!-- CONTENT -->
-  <div *ngIf="!loading && order" class="detail-card">
+  <div *ngIf="!loading && order" class="order-card">
 
-    <!-- HEADER -->
-    <div class="header">
-      <div>
-        <h2>Order #{{order.id}}</h2>
-        <p>Total Items: {{getTotalQty()}}</p>
-      </div>
+    <div class="top">
+      <h4>Order #{{ order.id }}</h4>
 
       <span class="badge" [ngClass]="getStatusClass(order.status)">
-        {{order.status}}
+        {{ order.status || 'Placed' }}
       </span>
     </div>
 
-    <!-- ITEMS -->
-    <div class="items">
+    <div *ngIf="order.items?.length">
 
-      <h4>Order Items</h4>
-
-      <div class="item" *ngFor="let item of order.items">
+      <div *ngFor="let item of order.items" class="item">
 
         <div class="left">
-          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88">
-        </div>
-
-        <div class="middle">
-          <p>Medicine ID: {{item.medicineId}}</p>
-          <span>Quantity: {{item.quantity}}</span>
+          <strong>{{ item.medicine?.name }}</strong>
+          <small>₹{{ item.medicine?.price }}</small>
         </div>
 
         <div class="right">
-          <strong>x{{item.quantity}}</strong>
+          Qty: {{ item.quantity }} <br>
+          <b>₹{{ item.quantity * (item.medicine?.price || 0) }}</b>
         </div>
 
       </div>
 
     </div>
 
-  </div>
+    <div class="total">
+      Total: ₹{{ getOrderTotal(order) }}
+    </div>
 
-  <!-- EMPTY -->
-  <div *ngIf="!loading && !order" class="empty">
-    Order not found
   </div>
 
 </div>

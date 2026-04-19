@@ -1,81 +1,54 @@
-.detail-page {
-  padding: 30px;
-  background: #f5f7fb;
-  min-height: 100vh;
+.order-card {
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* CARD */
-.detail-card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* HEADER */
-.header {
+.top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.header h2 {
-  margin: 0;
-}
-
-.header p {
-  color: #6b7280;
-}
-
-/* BADGE */
-.badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-}
-
-.pending { background: #fef3c7; }
-.approved { background: #dbeafe; }
-.completed { background: #dcfce7; }
-.rejected { background: #fee2e2; }
-
-/* ITEMS */
-.items h4 {
-  margin-bottom: 15px;
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 15px;
-  align-items: center;
-  background: #f8fafc;
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-.left img {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
+.left small {
+  display: block;
+  color: gray;
 }
 
-.middle p {
-  margin: 0;
+.total {
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
 }
 
-.middle span {
-  color: #6b7280;
+/* 🔥 STATUS BADGES */
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
 }
 
-.right {
-  font-size: 18px;
+.pending {
+  background-color: orange;
 }
 
-/* STATES */
-.loading, .empty {
-  text-align: center;
-  padding: 40px;
+.approved {
+  background-color: green;
+}
+
+.completed {
+  background-color: blue;
+}
+
+.rejected {
+  background-color: red;
 }

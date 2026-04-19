@@ -1,103 +1,54 @@
-.order-page {
-  padding: 30px;
-  background: #f5f7fb;
-  min-height: 100vh;
-}
-
-.header h2 {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.header p {
-  color: #6b7280;
-  margin-bottom: 20px;
-}
-
-/* GRID */
-.order-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-/* CARD */
 .order-card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  background: #fff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* TOP */
 .top {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.top h4 {
-  margin: 0;
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-/* BADGE */
+.left small {
+  display: block;
+  color: gray;
+}
+
+.total {
+  margin-top: 10px;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* 🔥 STATUS COLORS */
 .badge {
-  padding: 6px 12px;
+  padding: 5px 12px;
   border-radius: 20px;
+  color: white;
   font-size: 12px;
 }
 
 .pending {
-  background: #fef3c7;
+  background-color: orange;
 }
 
 .approved {
-  background: #dbeafe;
+  background-color: green;
 }
 
 .completed {
-  background: #dcfce7;
+  background-color: blue;
 }
 
 .rejected {
-  background: #fee2e2;
-}
-
-/* INFO */
-.info {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
-}
-
-.info span {
-  display: block;
-  color: #6b7280;
-}
-
-/* ITEMS */
-.items {
-  margin-top: 10px;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  background: #f8fafc;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-
-/* EMPTY */
-.empty {
-  text-align: center;
-  padding: 40px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .order-grid {
-    grid-template-columns: 1fr;
-  }
+  background-color: red;
 }

@@ -29,7 +29,7 @@ import { RoleGuard } from './guards/role.guard';
 const routes: Routes = [
 
   /* DEFAULT */
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   /* AUTH */
   { path: 'login', component: LoginComponent },
@@ -118,7 +118,7 @@ const routes: Routes = [
   },
 
   /* FALLBACK */
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'login' }
 
 ];
 
