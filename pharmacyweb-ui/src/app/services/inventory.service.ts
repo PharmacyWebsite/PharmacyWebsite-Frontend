@@ -12,9 +12,9 @@ export class InventoryService {
   getByMedicineId(id: number) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
-getAll() {
-    return this.http.get<any[]>(this.apiUrl);
-  }
+getAllInventory() {
+  return this.http.get<any[]>(`${this.apiUrl}/all`);
+}
 
   updateInventory(id: number, quantity: number) {
     return this.http.put(`${this.apiUrl}/${id}?quantity=${quantity}`, {});

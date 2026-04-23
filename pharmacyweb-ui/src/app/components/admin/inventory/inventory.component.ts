@@ -21,30 +21,20 @@ export class InventoryComponent implements OnInit {
   }
 
   loadInventory() {
-
-    this.medicineService.getAllMedicines().subscribe((meds: any[]) => {
-
-      this.inventory = [];
-
-      meds.forEach(med => {
-
-        this.inventoryService.getByMedicineId(med.id).subscribe((res: any) => {
-
-          const item = res.data || res;
-
-          this.inventory.push({
-            id: med.id,
-            medicine: med,
-            stock: item.stock,
-            newStock: item.stock
-          });
-
-        });
-
-      });
-
-    });
-  }
+  this.inventoryService.getAllInventory().subscribe({
+    next: (data: any[]) => {
+      this.inventory = data.map(item => ({
+        id: item.medicineId,
+        medicine: item.medicine,
+        stock: item.stock,
+        newStock: item.stock
+      }));
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+}
 
   updateStock(item: any) {
     this.inventoryService.updateInventory(item.id, item.newStock)
