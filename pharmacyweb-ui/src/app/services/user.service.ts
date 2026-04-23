@@ -1,38 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { User } from '../models/user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class UserService {
-
   private apiUrl = `${environment.apiUrl}/user`;
 
   constructor(private http: HttpClient) {}
 
-  // 🔹 Get current logged user (if backend supports)
+  // ✅ Get current user profile
   getCurrentUser() {
-    return this.http.get<User>(`${this.apiUrl}/me`);
+    return this.http.get(`${this.apiUrl}/me`);
   }
 
-  // 🔹 Get all users (admin use)
+  // ✅ Get all users (Admin only)
   getAllUsers() {
-    return this.http.get<User[]>(this.apiUrl);
+    return this.http.get(this.apiUrl);
   }
 
-  // 🔹 Get user by ID
+  // ✅ Get user by ID (Admin only)
   getUserById(id: number) {
-    return this.http.get<User>(`${this.apiUrl}/${id}`);
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  // 🔹 Update user
-  updateUser(id: number, data: any) {
-    return this.http.put(`${this.apiUrl}/${id}`, data);
-  }
+  // ✅ Update user profile - CORRECT ENDPOINT
+ updateUser(id: number, data: any) {
+  // Tell Angular to expect text response, not JSON
+  return this.http.put(`${this.apiUrl}/update`, data, {
+    responseType: 'text'  // ✅ Add this
+  });
+}
 
-  // 🔹 Delete user (admin)
+  // ✅ Delete user (Admin only)
   deleteUser(id: number) {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }

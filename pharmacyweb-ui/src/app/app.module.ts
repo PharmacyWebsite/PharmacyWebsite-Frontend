@@ -36,6 +36,8 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
 import { UploadComponent } from './components/prescription/upload/upload.component';
 import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { UsersComponent } from './components/admin/users/users/users.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { RouterModule } from '@angular/router';
     OrdersComponent,
     InventoryComponent,
     LoyaltyComponent,
-    HealthPackagesComponent
+    HealthPackagesComponent,
+    ProfileComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { MedicineDetailComponent } from './components/medicine/medicine-detail/m
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import { OrderDetailComponent } from './components/order/order-detail/order-detail.component';
 import { UploadComponent } from './components/prescription/upload/upload.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 /* ADMIN */
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
@@ -21,10 +22,13 @@ import { OrdersComponent } from './components/admin/orders/orders.component';
 import { InventoryComponent } from './components/admin/inventory/inventory.component';
 import { LoyaltyComponent } from './components/admin/loyalty/loyalty.component';
 import { HealthPackagesComponent } from './components/admin/health-packages/health-packages.component';
+import { UsersComponent } from './components/admin/users/users/users.component';
 
 /* GUARDS */
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+
+
 
 const routes: Routes = [
 
@@ -44,6 +48,13 @@ const routes: Routes = [
   },
 
   /* PROTECTED USER ROUTES */
+
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  
   {
     path: 'medicine/:id',
     component: MedicineDetailComponent,
@@ -75,6 +86,13 @@ const routes: Routes = [
   },
 
   /* ADMIN ROUTES */
+
+  {
+  path: 'admin/users',
+  component: UsersComponent,
+  canActivate: [AuthGuard, RoleGuard],
+  data: { role: 'Admin' }
+},
   {
     path: 'admin',
     component: DashboardComponent,
