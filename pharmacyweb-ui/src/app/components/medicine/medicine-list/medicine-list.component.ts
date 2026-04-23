@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { MedicineService } from 'src/app/services/medicine.service';
+import { Medicine } from 'src/app/models/medicine.model';
 
 @Component({
   selector: 'app-medicine-list',
@@ -9,12 +10,12 @@ import { MedicineService } from 'src/app/services/medicine.service';
 })
 export class MedicineListComponent implements OnInit {
 
-  medicines: any[] = [];
-  allMedicines: any[] = [];
+  medicines: Medicine[] = [];
+  allMedicines: Medicine[] = [];
   categories: any[] = [];
 
   searchText: string = '';
-  selectedCategory: string = '';
+  selectedCategoryId: number = 0; // ✅ FIXED
 
   constructor(
     private medicineService: MedicineService,
@@ -26,6 +27,7 @@ export class MedicineListComponent implements OnInit {
     this.loadCategories();
   }
 
+  // ✅ LOAD MEDICINES
   loadMedicines() {
     this.medicineService.getAllMedicines().subscribe((res: any) => {
       this.allMedicines = res.data || res;
@@ -33,28 +35,30 @@ export class MedicineListComponent implements OnInit {
     });
   }
 
+  // ✅ LOAD CATEGORIES
   loadCategories() {
     this.categoryService.getAllCategories().subscribe((res: any) => {
       this.categories = res.data || res;
     });
   }
 
-  // 🔍 SEARCH
+  // 🔍 SEARCH + CATEGORY FILTER
   filterMedicines() {
     this.medicines = this.allMedicines.filter(m =>
       m.name.toLowerCase().includes(this.searchText.toLowerCase()) &&
-      (this.selectedCategory === '' || m.category?.name === this.selectedCategory)
+      (this.selectedCategoryId === 0 || m.categoryId === this.selectedCategoryId)
     );
   }
 
-  // 🧠 CATEGORY FILTER
-  selectCategory(name: string) {
-    this.selectedCategory = name;
+  // 🧠 CATEGORY SELECT
+  selectCategory(id: number) {
+    this.selectedCategoryId = id;
     this.filterMedicines();
   }
 
+  // 🔄 CLEAR FILTER
   clearFilter() {
-    this.selectedCategory = '';
+    this.selectedCategoryId = 0;
     this.searchText = '';
     this.medicines = this.allMedicines;
   }

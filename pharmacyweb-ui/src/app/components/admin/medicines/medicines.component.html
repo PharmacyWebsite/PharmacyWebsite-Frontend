@@ -43,7 +43,7 @@
           <td>{{ medicine.dosage }}</td>
           <td>₹{{ medicine.price }}</td>
           <td>{{ medicine.category?.name || medicine.categoryId }}</td>
-          <td>{{ medicine.inventory?.stock || 0 }}</td>
+          <td>{{ medicine.stock }}</td>
           <td class="text-end">
             <button class="edit-btn" (click)="openEditForm(medicine)">Edit</button>
             <button class="delete-btn" (click)="deleteMedicine(medicine.id)">Delete</button>

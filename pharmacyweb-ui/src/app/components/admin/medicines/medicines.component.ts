@@ -80,28 +80,29 @@ export class MedicinesComponent implements OnInit {
     };
   }
 
-  saveMedicine(): void {
-    const payload = {
-      id: this.formData.id,
-      name: this.formData.name,
-      dosage: this.formData.dosage,
-      price: this.formData.price,
-      categoryId: this.formData.categoryId
-    };
+  
+   saveMedicine(): void {
+  const payload = {
+    id: this.formData.id,
+    name: this.formData.name,
+    dosage: this.formData.dosage,
+    price: this.formData.price,
+    categoryId: this.formData.categoryId,
+    stock: this.formData.stock // ✅ include stock
+  };
 
-    if (this.isEdit) {
-      this.medicineService.updateMedicine(this.formData.id, payload).subscribe(() => {
-        this.showForm = false;
-        this.loadMedicines();
-      });
-    } else {
-      this.medicineService.createMedicine(payload, this.formData.stock).subscribe(() => {
-        this.showForm = false;
-        this.loadMedicines();
-      });
-    }
+  if (this.isEdit) {
+    this.medicineService.updateMedicine(this.formData.id, payload).subscribe(() => {
+      this.showForm = false;
+      this.loadMedicines();
+    });
+  } else {
+    this.medicineService.createMedicine(payload).subscribe(() => {
+      this.showForm = false;
+      this.loadMedicines();
+    });
   }
-
+}
   deleteMedicine(id: number): void {
     if (!confirm('Delete this medicine?')) return;
 

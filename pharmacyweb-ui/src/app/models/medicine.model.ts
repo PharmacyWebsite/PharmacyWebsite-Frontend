@@ -8,5 +8,5 @@ export interface Medicine {
   price: number;
   categoryId: number;
   category?: Category;
-  inventory?: Inventory;
+   stock: number; // ✅ ADD THIS
 }

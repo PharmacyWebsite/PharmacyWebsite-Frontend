@@ -20,9 +20,9 @@ getAll() {
     return this.http.get<Medicine>(`${this.apiUrl}/${id}`);
   }
 
-  createMedicine(data: any, stock: number) {
-    return this.http.post(`${this.apiUrl}?stock=${stock}`, data);
-  }
+ createMedicine(data: any) {
+  return this.http.post(`${this.apiUrl}`, data);
+}
 
   updateMedicine(id: number, data: any) {
     return this.http.put(`${this.apiUrl}/${id}`, data);
