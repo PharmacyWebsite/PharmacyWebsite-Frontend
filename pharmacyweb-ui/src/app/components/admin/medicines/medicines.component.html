@@ -13,7 +13,14 @@
       <input type="text" [(ngModel)]="formData.dosage" placeholder="Dosage" class="form-control">
       <input type="number" [(ngModel)]="formData.price" placeholder="Price" class="form-control">
       <select [(ngModel)]="formData.categoryId" class="form-control">
-        <option [value]="0">Select category</option>
+       <select [(ngModel)]="formData.categoryId" class="form-control">
+  <select [(ngModel)]="formData.categoryId" class="form-control">
+  <option [ngValue]="0">Select category</option>
+  <option *ngFor="let category of categories" [ngValue]="category.id">
+    {{ category.name }}
+  </option>
+</select>
+</select>
         <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
       </select>
       <input *ngIf="!isEdit" type="number" [(ngModel)]="formData.stock" placeholder="Stock" class="form-control">
